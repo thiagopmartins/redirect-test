@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 const PORT = 8080;
 
+app.use(express.static(path.join(__dirname, '')));
+
 // Rota principal
 app.get('/', async (req, res) => {
     try {
@@ -51,13 +53,13 @@ app.get('/', async (req, res) => {
         const { url } = apiResponse.data;
 
         if (!url) {
-            res.redirect("http://127.0.0.1:5500/redirect-error.html");
+            res.redirect("/redirect-error.html");
         }
 
         res.redirect(url);
 
     } catch (error) {
-        res.redirect("http://127.0.0.1:5500/redirect-error.html");
+        res.redirect("/redirect-error.html");
     }
 });
 
