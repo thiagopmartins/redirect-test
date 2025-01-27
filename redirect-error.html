@@ -1,0 +1,103 @@
+﻿
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                margin-top: 12%;
+                padding: 25px;
+            }
+            .div-flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background-color: #edf2f8;
+                max-width: 1024px;
+                max-height: 720px;
+                border-radius: 10px;
+                padding: 20px;
+            }
+            .texto {
+                font-family: "Lato", sans-serif;
+                color: #626364;
+                font-size: 16px;
+                text-align: center;
+            }
+            
+            .botao {
+                font-family: "Lato", sans-serif;
+                background-color: #4694e8;
+                width: 150px;
+                height: 40px;
+                border-radius: 15px;
+                color: #FFF;
+                border: none;
+                line-height: 22px;
+                font-size: 16px;
+                margin-top: 10px;
+            }
+
+            .botao:hover {
+                cursor: pointer;
+            }
+            
+            .botao:focus {
+                outline: none;
+                border: none;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+        </style>
+        <script>
+            var hasTouchScreen = false;
+            var time = 10;
+        
+            if ("maxTouchPoints" in navigator) {
+                hasTouchScreen = navigator.maxTouchPoints > 0;
+            }
+        
+            function siteRedirect() {
+                window.location = "https://cpfl.com.br";    
+            }
+        
+            document.addEventListener('DOMContentLoaded', function () {
+        
+                var ii = setInterval(() => {
+                    time--;
+                    document.getElementById('time').innerText = time;
+        
+                    if (time <= 1) {
+                        siteRedirect();
+
+                        clearInterval(ii);
+                    }
+                }, 980);
+            });
+        </script>        
+    </head>
+    <body>
+        <div class="container">
+            <div class="div-flex">
+                <img class="logo" src="assets/Logo_CPFL_Energia.png"></img>
+                <p class="texto">Não foi possível processar sua solicitação no momento. Por favor, tente novamente mais tarde.</p>
+                <p class="texto">Você será redirecionado em <span id="time" style="font-weight: 600;">10</span> segundos. Caso não ocorra, clique no botão abaixo. </p>
+                <button type="button" class="btn botao" onclick="siteRedirect()">Voltar ao site</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
